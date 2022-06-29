@@ -1,0 +1,63 @@
+{
+  "name": "gcpkit",
+  "version": "0.0.1",
+  "description": "Google Cloud Platform Toolkit",
+  "homepage": "https://github.com/gcpkit/cli",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gcpkit/cli.git"
+  },
+  "keywords": [
+    "GCP",
+    "Cloud",
+    "Toolkit"
+  ],
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "gcpkit": "bin/gcpkit"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist/",
+    "bin/"
+  ],
+  "scripts": {
+    "prepublishOnly": "npm run dist",
+    "dist": "rimraf dist && tsc",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,json,md,ts,tsx,graphql}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": true,
+    "tabWidth": 2,
+    "arrowParens": "avoid",
+    "trailingComma": "all",
+    "printWidth": 80
+  },
+  "dependencies": {
+    "@google-cloud/functions": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.1.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "prettier-plugin-organize-imports": "^3.0.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.4"
+  }
+}
